@@ -103,14 +103,15 @@ export default function EditGoalPage() {
                   />
                 </div>
                 {error && <p className="text-sm text-destructive">{error}</p>}
-                <div className="flex gap-3">
-                  <Button type="button" variant="outline" onClick={() => router.back()} className="w-full">
-                    Cancel
-                  </Button>
-                  <Button type="submit" className="w-full bg-primary hover:bg-primary/90" disabled={isSaving}>
-                    {isSaving ? "Saving..." : "Update"}
-                  </Button>
-                </div>
+                <div className="flex flex-col gap-3">
+                <Button type="submit" className="w-full bg-primary hover:bg-primary/90" disabled={isSaving}>
+                  {isSaving ? "Saving..." : "Update"}
+                </Button>
+
+                <Button type="button" variant="outline" onClick={() => router.back()} className="w-full">
+                  Cancel
+                </Button>
+              </div>
               </div>
             </form>
           </CardContent>
