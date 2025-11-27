@@ -10,12 +10,12 @@ export default function HomePage() {
           Master financial literacy through gamification. Track savings, earn badges, and climb levels.
         </p>
         <div className="flex gap-3 justify-center">
-          <Link href="/auth/login" asChild>
-            <Button className="bg-primary hover:bg-primary/90">Login</Button>
-          </Link>
-          <Link href="/auth/sign-up" asChild>
-            <Button variant="outline">Sign Up</Button>
-          </Link>
+          <Button className="bg-primary hover:bg-primary/90" asChild>
+            <Link href="/auth/login">Login</Link>
+          </Button>
+          <Button variant="outline" asChild>
+            <Link href="/auth/sign-up">Sign Up</Link>
+          </Button>
         </div>
       </div>
     </div>
