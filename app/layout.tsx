@@ -10,7 +10,10 @@ const geistMono = Geist_Mono({ subsets: ["latin"] })
 export const metadata: Metadata = {
   title: "Level Up Your Money Habits - Financial Literacy Gamified",
   description: "Master financial literacy through gamification. Track savings, earn badges, and climb levels.",
-    generator: 'v0.app'
+  generator: "v0.app",
+  icons: {
+    icon: "/icon.png",
+  },
 }
 
 export default function RootLayout({
