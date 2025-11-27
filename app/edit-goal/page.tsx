@@ -4,7 +4,7 @@ import type React from "react"
 
 import { createClient } from "@/lib/supabase/client"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { useRouter } from "next/navigation"
@@ -80,12 +80,12 @@ export default function EditGoalPage() {
     <div className="flex min-h-svh w-full items-center justify-center p-4 md:p-6">
       <div className="w-full max-w-md">
         <Card className="border-0 shadow-sm">
-          <form onSubmit={handleSaveGoal} className="flex flex-col">
-            <CardHeader className="text-center pb-4">
-              <CardTitle className="text-2xl">Update Monthly Goal</CardTitle>
-              <CardDescription>Current goal: ${currentGoal?.toLocaleString() || "Not set"}</CardDescription>
-            </CardHeader>
-            <CardContent>
+          <CardHeader className="text-center pb-4">
+            <CardTitle className="text-2xl">Update Monthly Goal</CardTitle>
+            <CardDescription>Current goal: ${currentGoal?.toLocaleString() || "Not set"}</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <form onSubmit={handleSaveGoal}>
               <div className="flex flex-col gap-6">
                 <div className="grid gap-3">
                   <Label htmlFor="goal" className="text-sm">
@@ -103,17 +103,17 @@ export default function EditGoalPage() {
                   />
                 </div>
                 {error && <p className="text-sm text-destructive">{error}</p>}
+                <div className="flex gap-3">
+                  <Button type="button" variant="outline" onClick={() => router.back()} className="w-full">
+                    Cancel
+                  </Button>
+                  <Button type="submit" className="w-full bg-primary hover:bg-primary/90" disabled={isSaving}>
+                    {isSaving ? "Saving..." : "Update"}
+                  </Button>
+                </div>
               </div>
-            </CardContent>
-            <CardFooter className="flex gap-3 pt-0">
-              <Button type="button" variant="outline" onClick={() => router.back()} className="w-full">
-                Cancel
-              </Button>
-              <Button type="submit" className="w-full bg-primary hover:bg-primary/90" disabled={isSaving}>
-                {isSaving ? "Saving..." : "Update"}
-              </Button>
-            </CardFooter>
-          </form>
+            </form>
+          </CardContent>
         </Card>
       </div>
     </div>
