@@ -35,6 +35,7 @@ export default function InsightsPage() {
   const [savingsData, setSavingsData] = useState<SavingsData[]>([])
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+  const [challengeIndex, setChallengeIndex] = useState(0)
   const supabase = createClient()
 
   useEffect(() => {
@@ -65,6 +66,10 @@ export default function InsightsPage() {
     loadData()
   }, [supabase])
 
+  useEffect(() => {
+    setChallengeIndex(Math.floor(Math.random() * CHALLENGES.length))
+  }, [])
+
   if (isLoading) {
     return (
       <div className="flex min-h-svh items-center justify-center">
@@ -91,7 +96,7 @@ export default function InsightsPage() {
     )
   }
 
-  const randomChallenge = CHALLENGES[Math.floor(Math.random() * CHALLENGES.length)]
+  const randomChallenge = CHALLENGES[challengeIndex]
   const avgSavings =
     savingsData.length > 0 ? Math.round(savingsData.reduce((sum, d) => sum + d.savings, 0) / savingsData.length) : 0
 

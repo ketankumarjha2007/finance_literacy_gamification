@@ -176,15 +176,15 @@ export default function UploadDataPage() {
           </CardContent>
         </Card>
 
-        <div className="flex gap-3">
-          <Button variant="outline" className="w-full bg-transparent" asChild>
-            <Link href="/dashboard">Back</Link>
-          </Button>
+        <div className="flex flex-col gap-3">
           {uploadedData.length > 0 && (
             <Button className="w-full bg-primary hover:bg-primary/90" asChild>
               <Link href="/insights">View Insights</Link>
             </Button>
           )}
+          <Button variant="outline" className="w-full bg-transparent" asChild>
+            <Link href="/dashboard">Back</Link>
+          </Button>
         </div>
       </div>
     </div>
